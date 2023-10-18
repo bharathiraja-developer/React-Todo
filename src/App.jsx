@@ -2,6 +2,7 @@ import React from "react";
 import Mytodo from "./Components/Mytodo";
 import CreateTodo from "./Components/CreateTodo";
 import Content from "./Components/Content";
+import Array from "./Components/Array";
 
 function App() {
   return (

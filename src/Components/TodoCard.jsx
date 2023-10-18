@@ -1,10 +1,14 @@
 import React from "react";
+import Array from "./Array";
 
-function TodoCard({ todoName, todoDescription, status }) {
+function TodoCard({ todoName, todoDescription }) {
   return (
     <div className="col mb-5">
-      <div className="card h-100" style={{ width: "16rem" }}>
-        <div className="card-body p-3">
+      <div
+        className="card h-100"
+        style={{ backgroundColor: "#CCF5D3", border: "none" }}
+      >
+        <div className="card-body p-2 pt-3">
           <div>
             <p>Name : {todoName}</p>
             <p>Description : {todoDescription}</p>

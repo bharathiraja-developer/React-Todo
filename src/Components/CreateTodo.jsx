@@ -1,33 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
+import Array from "./Array";
 
 function CreateTodo() {
+  const [inputs, setInputs] = useState({});
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs((values) => ({ ...values, [name]: value }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let id = Array.length + 1;
+    let todoName = inputs.TodoName;
+    let todoDescription = inputs.TodoDescription;
+    Array.push({
+      id: id,
+      todoName: todoName,
+      todoDescription: todoDescription,
+      status: false,
+    });
+    console.log(Array);
+  };
   return (
     <div className="container mt-4">
       <div className="row">
         <div className="col"></div>
         <div className="col-11 text-center">
-          <input
-            className="border border-success me-1 mb-2"
-            placeholder="Todo Name"
-            style={{ width: "420px" }}
-            name="TodoName"
-          ></input>
-          <input
-            className="border border-success me-1 mb-2"
-            placeholder="Todo Description"
-            style={{ width: "420px" }}
-            name="TodoDescription"
-          ></input>
-          <button
-            className="border border-success text-light"
-            style={{
-              backgroundColor: "#199C7D",
-              width: "100px",
-              borderRadius: "5px",
-            }}
-          >
-            Add Todo
-          </button>
+          <form onSubmit={handleSubmit}>
+            <input
+              className="border border-success me-1 mb-2"
+              placeholder="Todo Name"
+              name="TodoName"
+              value={inputs.TodoName}
+              onChange={handleChange}
+              style={{ width: "420px" }}
+            ></input>
+            <input
+              className="border border-success me-1 mb-2"
+              placeholder="Todo Description"
+              name="TodoDescription"
+              value={inputs.TodoDescription}
+              onChange={handleChange}
+              style={{ width: "420px" }}
+            ></input>
+            <button
+              type="submit"
+              className="border border-success text-light"
+              style={{
+                backgroundColor: "#199C7D",
+                width: "100px",
+                borderRadius: "5px",
+              }}
+            >
+              Add Todo
+            </button>
+          </form>
         </div>
         <div className="col"></div>
         <div className="row mt-4">
