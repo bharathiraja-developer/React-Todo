@@ -2,7 +2,7 @@ import React from "react";
 import TodoCard from "./TodoCard";
 import Array from "./Array";
 
-function Content({ deleted, getvalues }) {
+function Content({ deleted, getvalues, filter }) {
   return (
     <section className="py-5">
       <div className="container px-4 px-lg-5 mt-0">
@@ -16,6 +16,7 @@ function Content({ deleted, getvalues }) {
               status={contents.status}
               deleted={deleted}
               getvalues={getvalues}
+              filter={filter}
             />
           ))}
         </div>

@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Array from "./Array";
 import { Link, useNavigate } from "react-router-dom";
 
-function CreateTodo() {
+function CreateTodo({ handleFilter }) {
   const [inputs, setInputs] = useState({});
+
   let history = useNavigate();
 
   const handleChange = (event) => {
@@ -23,10 +24,10 @@ function CreateTodo() {
       todoDescription: todoDescription,
       status: false,
     });
-    console.log(Array);
 
     history("/");
   };
+
   return (
     <div className="container mt-4">
       <div className="row">
@@ -77,6 +78,7 @@ function CreateTodo() {
             <h5>
               Status Filter{" "}
               <select
+                onChange={handleFilter}
                 className="form-select btn"
                 style={{
                   backgroundColor: "#F57E7A",
@@ -84,9 +86,9 @@ function CreateTodo() {
                   width: "180px",
                 }}
               >
-                <option>All</option>
-                <option>Completed</option>
-                <option>Not Completed</option>
+                <option defaultValue={"All"}>All</option>
+                <option value={"Completed"}>Completed</option>
+                <option value={"NotCompleted"}>Not Completed</option>
               </select>
             </h5>
           </div>
