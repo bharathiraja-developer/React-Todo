@@ -39,7 +39,7 @@ function CreateTodo() {
               name="TodoName"
               value={inputs.TodoName || " "}
               onChange={handleChange}
-              onClick={() => {
+              onSelect={() => {
                 history("/create");
               }}
               style={{ width: "420px" }}

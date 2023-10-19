@@ -1,7 +1,7 @@
 import React from "react";
 import Array from "./Array";
 
-function TodoCard({ todoName, todoDescription }) {
+function TodoCard({ id, todoName, todoDescription, status, deleted }) {
   return (
     <div className="col mb-5">
       <div
@@ -34,6 +34,10 @@ function TodoCard({ todoName, todoDescription }) {
               Edit
             </a>
             <a
+              id={id}
+              onClick={() => {
+                deleted(id);
+              }}
               className="btn mt-4"
               style={{ backgroundColor: "#B15218", color: "white" }}
             >

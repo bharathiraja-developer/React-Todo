@@ -2,7 +2,7 @@ import React from "react";
 import TodoCard from "./TodoCard";
 import Array from "./Array";
 
-function Content() {
+function Content({ deleted }) {
   return (
     <section className="py-5">
       <div className="container px-4 px-lg-5 mt-0">
@@ -10,9 +10,11 @@ function Content() {
           {Array.map((contents) => (
             <TodoCard
               key={contents.id}
+              id={contents.id}
               todoName={contents.todoName}
               todoDescription={contents.todoDescription}
               status={contents.status}
+              deleted={deleted}
             />
           ))}
         </div>
