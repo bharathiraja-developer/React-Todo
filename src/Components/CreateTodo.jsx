@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Array from "./Array";
+import { Link, useNavigate } from "react-router-dom";
 
 function CreateTodo() {
   const [inputs, setInputs] = useState({});
+  let history = useNavigate();
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -22,6 +24,8 @@ function CreateTodo() {
       status: false,
     });
     console.log(Array);
+
+    history("/");
   };
   return (
     <div className="container mt-4">
@@ -33,29 +37,35 @@ function CreateTodo() {
               className="border border-success me-1 mb-2"
               placeholder="Todo Name"
               name="TodoName"
-              value={inputs.TodoName}
+              value={inputs.TodoName || " "}
               onChange={handleChange}
+              onClick={() => {
+                history("/create");
+              }}
               style={{ width: "420px" }}
             ></input>
             <input
               className="border border-success me-1 mb-2"
               placeholder="Todo Description"
               name="TodoDescription"
-              value={inputs.TodoDescription}
+              value={inputs.TodoDescription || " "}
               onChange={handleChange}
               style={{ width: "420px" }}
             ></input>
-            <button
-              type="submit"
-              className="border border-success text-light"
-              style={{
-                backgroundColor: "#199C7D",
-                width: "100px",
-                borderRadius: "5px",
-              }}
-            >
-              Add Todo
-            </button>
+
+            <Link onClick={handleSubmit}>
+              <button
+                type="submit"
+                className="border border-success text-light"
+                style={{
+                  backgroundColor: "#199C7D",
+                  width: "100px",
+                  borderRadius: "5px",
+                }}
+              >
+                Add Todo
+              </button>
+            </Link>
           </form>
         </div>
         <div className="col"></div>
