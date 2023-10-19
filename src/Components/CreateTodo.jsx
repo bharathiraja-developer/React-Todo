@@ -37,7 +37,7 @@ function CreateTodo() {
               className="border border-success me-1 mb-2"
               placeholder="Todo Name"
               name="TodoName"
-              value={inputs.TodoName || " "}
+              value={inputs.TodoName}
               onChange={handleChange}
               onSelect={() => {
                 history("/create");
@@ -48,7 +48,7 @@ function CreateTodo() {
               className="border border-success me-1 mb-2"
               placeholder="Todo Description"
               name="TodoDescription"
-              value={inputs.TodoDescription || " "}
+              value={inputs.TodoDescription}
               onChange={handleChange}
               style={{ width: "420px" }}
             ></input>

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Array from "./Array";
 import { Link } from "react-router-dom";
+import Button from "./Button";
 
 function TodoCard({
   id,
@@ -10,6 +11,12 @@ function TodoCard({
   deleted,
   getvalues,
 }) {
+  const [todoStatus, setTodoStatus] = useState(false);
+
+  function handleStatus() {
+    setTodoStatus(!todoStatus);
+  }
+
   return (
     <div className="col mb-5">
       <div
@@ -22,13 +29,7 @@ function TodoCard({
             <p>Description : {todoDescription}</p>
             <p>
               Status :{" "}
-              <select
-                className="btn"
-                style={{ backgroundColor: "#F57E7A", color: "white" }}
-              >
-                <option>Not Completed</option>
-                <option>Completed</option>
-              </select>
+              <Button todoStatus={todoStatus} handleStatus={handleStatus} />
             </p>
           </div>
         </div>
