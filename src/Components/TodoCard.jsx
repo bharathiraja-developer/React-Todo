@@ -1,7 +1,15 @@
 import React from "react";
 import Array from "./Array";
+import { Link } from "react-router-dom";
 
-function TodoCard({ id, todoName, todoDescription, status, deleted }) {
+function TodoCard({
+  id,
+  todoName,
+  todoDescription,
+  status,
+  deleted,
+  getvalues,
+}) {
   return (
     <div className="col mb-5">
       <div
@@ -27,12 +35,18 @@ function TodoCard({ id, todoName, todoDescription, status, deleted }) {
 
         <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
           <div className="text-end">
-            <a
-              className="btn mt-4 me-2"
-              style={{ backgroundColor: "#199C7D", color: "white" }}
-            >
-              Edit
-            </a>
+            <Link to="/edit">
+              <button
+                id={id}
+                onClick={() => {
+                  getvalues(id, todoName, todoDescription);
+                }}
+                className="btn mt-4 me-2"
+                style={{ backgroundColor: "#199C7D", color: "white" }}
+              >
+                Edit
+              </button>
+            </Link>
             <a
               id={id}
               onClick={() => {
