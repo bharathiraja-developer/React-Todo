@@ -8,7 +8,7 @@ function Button({ todoStatus, handleStatus }) {
         className="btn"
         style={{ backgroundColor: "#F57E7A", color: "white" }}
       >
-        <option defaultValue={false}>Not Completed</option>
+        <option value={false}>Not Completed</option>
         <option value={true}>Completed</option>
       </select>
     );
@@ -18,8 +18,9 @@ function Button({ todoStatus, handleStatus }) {
         onChange={handleStatus}
         className="btn"
         style={{ backgroundColor: "#199C7D", color: "white" }}
+        defaultValue={true}
       >
-        <option defaultValue={false}>Not Completed</option>
+        <option value={false}>Not Completed</option>
         <option value={true}>Completed</option>
       </select>
     );
