@@ -7,6 +7,7 @@ function Button({ todoStatus, handleStatus }) {
         onChange={handleStatus}
         className="btn"
         style={{ backgroundColor: "#F57E7A", color: "white" }}
+        defaultValue={false}
       >
         <option value={false}>Not Completed</option>
         <option value={true}>Completed</option>

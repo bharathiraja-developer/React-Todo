@@ -39,7 +39,7 @@ function TodoCard({
               <p>Description : {todoDescription}</p>
               <p>
                 Status :{" "}
-                <Button todoStatus={todoStatus} handleStatus={handleStatus} />
+                <Button todoStatus={status} handleStatus={handleStatus} />
               </p>
             </div>
           </div>

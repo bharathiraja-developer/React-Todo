@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import Home from "./Components/Home";
 import Edit from "./Components/Edit";
-import Mytodo from "./Components/Mytodo";
-import CreateTodo from "./Components/CreateTodo";
-import Content from "./Components/Content";
-import Array from "./Components/Array";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 function App() {
