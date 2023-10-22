@@ -12,7 +12,6 @@ function Home({ getvalues }) {
     let index = Array.map(function (e) {
       return e.id;
     }).indexOf(id);
-
     Array.splice(index, 1);
     history("/");
   }
