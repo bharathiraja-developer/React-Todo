@@ -11,6 +11,7 @@ function Content({ deleted, getvalues, filter }) {
             <TodoCard
               key={contents.id}
               id={contents.id}
+              index={Array.indexOf(contents)}
               todoName={contents.todoName}
               todoDescription={contents.todoDescription}
               status={contents.status}

@@ -79,6 +79,7 @@ function CreateTodo({ handleFilter }) {
               Status Filter{" "}
               <select
                 onChange={handleFilter}
+                defaultValue={"All"}
                 className="form-select btn"
                 style={{
                   backgroundColor: "#F57E7A",
@@ -86,7 +87,7 @@ function CreateTodo({ handleFilter }) {
                   width: "180px",
                 }}
               >
-                <option defaultValue={"All"}>All</option>
+                <option value={"All"}>All</option>
                 <option value={"Completed"}>Completed</option>
                 <option value={"NotCompleted"}>Not Completed</option>
               </select>
