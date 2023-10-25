@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import Array from "./Array";
-import { useNavigate } from "react-router-dom";
 
 function Edit({ id, todoName, todoDescription }) {
-  const [inputs, setInputs] = useState({});
-  let history = useNavigate();
+  const [inputs, setInputs] = useState(" ");
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -16,15 +14,15 @@ function Edit({ id, todoName, todoDescription }) {
     return e.id;
   }).indexOf(id);
 
-  const handelSubmit = (e) => {
+  const handelSubmitEdit = (e) => {
     e.preventDefault();
 
     let a = Array[index];
-
-    a.todoName = inputs.TodoName;
-    a.todoDescription = inputs.TodoDescription;
-
-    history("/");
+    if (inputs.TodoName == undefined) a.todoName = todoName;
+    else a.todoName = inputs.TodoName;
+    if (inputs.TodoDescription == undefined)
+      a.todoDescription = todoDescription;
+    else a.todoDescription = inputs.TodoDescription;
   };
 
   return (
@@ -38,6 +36,7 @@ function Edit({ id, todoName, todoDescription }) {
               className="border border-success me-2 mb-2"
               placeholder="Todo Name"
               name="TodoName"
+              defaultValue="0"
               onChange={handleChange}
               style={{ width: "420px" }}
             ></input>
@@ -46,6 +45,7 @@ function Edit({ id, todoName, todoDescription }) {
               className="border border-success me-2 mb-2"
               placeholder="Todo Description"
               name="TodoDescription"
+              defaultValue={todoDescription}
               onChange={handleChange}
               style={{ width: "420px" }}
             ></input>

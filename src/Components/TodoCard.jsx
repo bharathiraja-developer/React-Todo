@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Array from "./Array";
-import { Link, useNavigate } from "react-router-dom";
 import Button from "./Button";
 
 function TodoCard({
@@ -12,9 +11,11 @@ function TodoCard({
   deleted,
   getvalues,
   filter,
+  edit,
+  setEdit,
+  setArrayCard,
 }) {
   const [todoStatus, setTodoStatus] = useState(false);
-  let history = useNavigate();
 
   function handleStatus() {
     setTodoStatus(!todoStatus);
@@ -24,7 +25,7 @@ function TodoCard({
     }).indexOf(id);
     let a = Array[index];
     a.status = status;
-    history("/");
+    setArrayCard();
   }
 
   if (filter === "All") {
@@ -47,18 +48,18 @@ function TodoCard({
 
           <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
             <div className="text-end">
-              <Link to="/edit">
-                <button
-                  id={id}
-                  onClick={() => {
-                    getvalues(id, todoName, todoDescription);
-                  }}
-                  className="btn mt-4 me-2"
-                  style={{ backgroundColor: "#199C7D", color: "white" }}
-                >
-                  Edit
-                </button>
-              </Link>
+              <button
+                id={id}
+                onClick={() => {
+                  getvalues(id, todoName, todoDescription);
+                  setEdit(!edit);
+                }}
+                className="btn mt-4 me-2"
+                style={{ backgroundColor: "#199C7D", color: "white" }}
+              >
+                Edit
+              </button>
+
               <a
                 id={id}
                 onClick={() => {
@@ -95,18 +96,18 @@ function TodoCard({
 
             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
               <div className="text-end">
-                <Link to="/edit">
-                  <button
-                    id={id}
-                    onClick={() => {
-                      getvalues(id, todoName, todoDescription);
-                    }}
-                    className="btn mt-4 me-2"
-                    style={{ backgroundColor: "#199C7D", color: "white" }}
-                  >
-                    Edit
-                  </button>
-                </Link>
+                <button
+                  id={id}
+                  onClick={() => {
+                    getvalues(id, todoName, todoDescription);
+                    setEdit(!edit);
+                  }}
+                  className="btn mt-4 me-2"
+                  style={{ backgroundColor: "#199C7D", color: "white" }}
+                >
+                  Edit
+                </button>
+
                 <a
                   id={id}
                   onClick={() => {
@@ -144,18 +145,17 @@ function TodoCard({
 
             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
               <div className="text-end">
-                <Link to="/edit">
-                  <button
-                    id={id}
-                    onClick={() => {
-                      getvalues(id, todoName, todoDescription);
-                    }}
-                    className="btn mt-4 me-2"
-                    style={{ backgroundColor: "#199C7D", color: "white" }}
-                  >
-                    Edit
-                  </button>
-                </Link>
+                <button
+                  id={id}
+                  onClick={() => {
+                    getvalues(id, todoName, todoDescription);
+                    setEdit(!edit);
+                  }}
+                  className="btn mt-4 me-2"
+                  style={{ backgroundColor: "#199C7D", color: "white" }}
+                >
+                  Edit
+                </button>
                 <a
                   id={id}
                   onClick={() => {

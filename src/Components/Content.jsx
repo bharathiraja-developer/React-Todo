@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import TodoCard from "./TodoCard";
 import Array from "./Array";
 
-function Content({ deleted, getvalues, filter }) {
+function Content({
+  deleted,
+  getvalues,
+  filter,
+  edit,
+  setEdit,
+  ArrayCard,
+  setArrayCard,
+}) {
   return (
     <section className="py-5">
       <div className="container px-4 px-lg-5 mt-0">
@@ -18,6 +26,9 @@ function Content({ deleted, getvalues, filter }) {
               deleted={deleted}
               getvalues={getvalues}
               filter={filter}
+              edit={edit}
+              setEdit={setEdit}
+              setArrayCard={setArrayCard}
             />
           ))}
         </div>
